@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_lab2"
+    app:startDestination="@id/calendarFragment">
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.labn2.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_calendarFragment_to_listOfActsFragment"
+            app:destination="@id/listOfActsFragment" />
+        <action
+            android:id="@+id/action_calendarFragment_to_createActFragment"
+            app:destination="@id/createActFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfActsFragment"
+        android:name="com.example.labn2.listOfActsFragment"
+        android:label="fragment_list_of_acts"
+        tools:layout="@layout/fragment_list_of_acts" >
+        <action
+            android:id="@+id/action_listOfActsFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_listOfActsFragment_to_createActFragment"
+            app:destination="@id/createActFragment" />
+        <action
+            android:id="@+id/action_listOfActsFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createActFragment"
+        android:name="com.example.labn2.CreateActFragment"
+        android:label="fragment_create_act"
+        tools:layout="@layout/fragment_create_act" >
+        <action
+            android:id="@+id/action_createActFragment_to_listOfActsFragment"
+            app:destination="@id/listOfActsFragment" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.labn2.EditFragment"
+        android:label="EditFragment" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_editFragment_to_listOfActsFragment"
+            app:destination="@id/listOfActsFragment" />
+    </fragment>
+</navigation>
