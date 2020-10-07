@@ -20,4 +20,6 @@ interface ActDao {
 
     @Query("SELECT * from act_table ORDER BY ActId ASC")
     fun getAllActs(): LiveData<List<Act>>
+
+
 }
