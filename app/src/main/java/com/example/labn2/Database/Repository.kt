@@ -14,8 +14,8 @@ class Repository(private val  actDao:ActDao) {
         actDao.addAct(act)
     }
 
-    fun delete(act:Act){
-        actDao.delete(act)
+    fun delete(id:Long){
+        actDao.delete(id)
     }
     suspend fun update(act:Act){
         actDao.update(act)

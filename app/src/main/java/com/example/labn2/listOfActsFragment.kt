@@ -34,10 +34,10 @@ class listOfActsFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         //ActViewModel
-   //    actViewModel = ViewModelProvider(this).get(ActViewModel::class.java)
-//        actViewModel.readAlldata.observe(viewLifecycleOwner, Observer { act->
-//            adapter.setData(act)
-//        })
+       actViewModel = ViewModelProvider(this).get(ActViewModel::class.java)
+        actViewModel.readAlldata.observe(viewLifecycleOwner, Observer { act->
+            adapter.setData(act)
+        })
 
 
         return binding.root

@@ -50,7 +50,7 @@ class CreateActFragment : Fragment() {
         val args = CreateActFragmentArgs.fromBundle(arguments!!)
         time = args.time
        // val string = SimpleDateFormat("dd/MM/yyyy").format(time)
-        actViewModel = ViewModelProvider(this).get(ActViewModel::class.java)
+        actViewModel = ViewModelProvider(this,defaultViewModelProviderFactory).get(ActViewModel::class.java)
          timePicker = binding.timepicker
 
         binding.sbmitButton.setOnClickListener {
@@ -67,7 +67,7 @@ class CreateActFragment : Fragment() {
 
         if (inputCheck(actTitle,actDescription)){
             val act = Act(0,time,actTitle,actDescription,"${timePicker.hour}:${timePicker.minute}")
-          //  actViewModel.addAct(act)
+           actViewModel.addAct(act)
             Toast.makeText(context,"Succesfully Added" + actTitle,Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_createActFragment_to_listOfActsFragment)
         }

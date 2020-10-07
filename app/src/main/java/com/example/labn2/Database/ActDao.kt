@@ -7,7 +7,7 @@ import androidx.room.*
 interface ActDao {
 
     @Delete
-    fun delete(act:Act)
+    fun delete(key:Long)
     
     @Insert(onConflict = OnConflictStrategy.IGNORE)
      fun addAct(act:Act)

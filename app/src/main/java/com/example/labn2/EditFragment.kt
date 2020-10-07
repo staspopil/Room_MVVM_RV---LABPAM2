@@ -48,6 +48,10 @@ class EditFragment : Fragment() {
         binding.sbmitButton2.setOnClickListener {
             updateAct()
         }
+        binding.delButton.setOnClickListener {
+            actViewModel.delete(actID)
+            findNavController().navigate(R.id.action_editFragment_to_listOfActsFragment)
+        }
         return binding.root
     }
 
@@ -58,7 +62,7 @@ class EditFragment : Fragment() {
         val actDate = Act_Date2.text.toString()
         if (inputCheck(actTitle,actDescription)){
             val act = Act(actID,actDate,actTitle,actDescription,"${timePicker.hour}:${timePicker.minute}")
-           // actViewModel.update(act)
+            actViewModel.update(act)
             Toast.makeText(context,"Succesfully Edited" + actTitle, Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_editFragment_to_listOfActsFragment)
         }
