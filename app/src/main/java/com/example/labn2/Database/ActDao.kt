@@ -22,7 +22,7 @@ interface ActDao {
     @Query("SELECT * from act_table ORDER BY ActId ASC")
     fun getAllActs(): LiveData<List<Act>>
 
-    @Query("SELECT * from act_table WHERE ActId LIKE :key ORDER BY ActId ASC")
+    @Query("SELECT * from act_table WHERE actName LIKE :key ORDER BY ActId ASC")
     fun getKeyActs(key:String): LiveData<List<Act>>
 
 }
