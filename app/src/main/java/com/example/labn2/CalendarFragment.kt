@@ -39,11 +39,11 @@ class CalendarFragment : Fragment() {
 
 
     binding.showButton.setOnClickListener{
-        view!!.findNavController().navigate(R.id.action_calendarFragment_to_listOfActsFragment)
+       findNavController().navigate(R.id.action_calendarFragment_to_listOfActsFragment)
     }
         binding.addButton.setOnClickListener{
             var date = calendar.date
-            view!!.findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToCreateActFragment(time))
+            findNavController().navigate(CalendarFragmentDirections.actionCalendarFragmentToCreateActFragment(time))
         }
 
 

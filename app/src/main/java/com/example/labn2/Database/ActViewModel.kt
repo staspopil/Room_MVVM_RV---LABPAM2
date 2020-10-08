@@ -7,9 +7,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 
 class ActViewModel(application: Application):AndroidViewModel(application) {
-
-    val readAlldata: LiveData<List<Act>>
+    var readAlldata: LiveData<List<Act>>
     val repository: Repository
+    lateinit var Act:Act
 
     init {
         val actDao = ActDatabase.getDatabase(application)
@@ -18,27 +18,32 @@ class ActViewModel(application: Application):AndroidViewModel(application) {
         readAlldata = repository.readAllData
     }
 
+    fun getKeyActs(key:String){
+        this.readAlldata = repository.getKeyActs(key)
+    }
+
     fun addAct(act: Act) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addAct(act)
         }
     }
 
-    fun delete(id:Long) {
+    fun delete(act:Act) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.delete(id)
+            repository.delete(act)
         }
     }
 
-    fun update(act: Act) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.update(act)
+        fun update(act: Act) {
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.update(act)
+            }
+        }
+
+        fun getAct(id:Long):Act?{
+            return repository.get(id)
         }
     }
 
-    fun get(id: Long):Act? {
-        val lAct = readAlldata.value
-        val Act = lAct?.get(id.toInt())
-return Act
-    }
-}
+
+

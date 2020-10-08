@@ -48,7 +48,7 @@ class listRAdapter() :
             titletext = itemView.findViewById(R.id.textTitle)
             desctiptiontext = itemView.findViewById(R.id.textDescription)
            hhmmText = itemView.findViewById(R.id.text_hh_mm)
-            imageDelete = itemView.findViewById(R.id.image_delete)
+           // imageDelete = itemView.findViewById(R.id.image_delete)
             imageEdit = itemView.findViewById(R.id.image_edit)
 
         }

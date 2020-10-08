@@ -48,10 +48,10 @@ class EditFragment : Fragment() {
         binding.sbmitButton2.setOnClickListener {
             updateAct()
         }
-        binding.delButton.setOnClickListener {
-            actViewModel.delete(actID)
-            findNavController().navigate(R.id.action_editFragment_to_listOfActsFragment)
-        }
+//        binding.delButton.setOnClickListener {
+//            actViewModel.delete(actID)
+//            findNavController().navigate(R.id.action_editFragment_to_listOfActsFragment)
+//        }
         return binding.root
     }
 

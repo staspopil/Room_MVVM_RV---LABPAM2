@@ -7,7 +7,8 @@ import androidx.room.*
 interface ActDao {
 
     @Delete
-    fun delete(key:Long)
+    fun delete(act:Act)
+
     
     @Insert(onConflict = OnConflictStrategy.IGNORE)
      fun addAct(act:Act)
@@ -21,5 +22,7 @@ interface ActDao {
     @Query("SELECT * from act_table ORDER BY ActId ASC")
     fun getAllActs(): LiveData<List<Act>>
 
+    @Query("SELECT * from act_table WHERE ActId LIKE :key ORDER BY ActId ASC")
+    fun getKeyActs(key:String): LiveData<List<Act>>
 
 }

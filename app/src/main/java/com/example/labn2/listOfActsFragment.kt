@@ -38,6 +38,10 @@ class listOfActsFragment : Fragment() {
         actViewModel.readAlldata.observe(viewLifecycleOwner, Observer { act->
             adapter.setData(act)
         })
+        binding.searchButton.setOnClickListener {
+            val searchfilter = "%"+binding.filterText.text.toString()+"%"
+            actViewModel.getKeyActs(searchfilter)
+        }
 
 
         return binding.root
